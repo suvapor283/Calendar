@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+<!-- 네비게이션 바 -->
+<nav class="p-4 bg-white shadow-md flex justify-between items-center">
+    <div class="flex items-center space-x-4">
+        <button id="menu-btn" class="text-2xl">☰</button>
+        <h1 class="text-xl font-semibold">Calendar</h1>
+    </div>
+    <div class="flex items-center space-x-2">
+        <input type="text" placeholder="Value" class="border px-3 py-1 rounded bg-gray-200 rounded-full p-1 px-3">
+        <button class="bg-black text-white px-4 py-1 rounded">Search</button>
+    </div>
+</nav>
+
+<!-- 사이드바 -->
+<div id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform ease-in-out duration-300 z-40">
+    <div class="p-4 flex justify-between items-center border-b">
+        <h2 class="text-lg font-semibold">Menu</h2>
+        <button id="close-btn" class="text-xl">×</button>
+    </div>
+    <ul class="p-4 space-y-4">
+        <li><a href="#" class="block text-gray-700 hover:text-black">Home</a></li>
+        <li><a href="#" class="block text-gray-700 hover:text-black">Calendar</a></li>
+        <li><a href="#" class="block text-gray-700 hover:text-black">Diary</a></li>
+        <li><a href="#" class="block text-gray-700 hover:text-black">Settings</a></li>
+    </ul>
+</div>
+
+<!-- 캘린더 박스 -->
+<div class="max-w-5xl mx-auto mt-6 p-6 bg-white shadow-md rounded-lg">
+    <!-- 상단 컨트롤 -->
+    <div class="flex justify-between items-center relative">
+        <div class="flex bg-gray-200 rounded-full p-1">
+            <button id="calendar-btn" class="bg-white px-4 py-1 rounded-full text-black shadow-md">Calendar</button>
+            <button id="diary-btn" class="px-4 py-1 rounded-full text-gray-600">Diary</button>
+        </div>
+
+        <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
+            <button class="text-2xl">&lt;</button>
+            <h2 class="text-xl font-semibold text-center">March 2025</h2>
+            <button class="text-2xl">&gt;</button>
+        </div>
+    </div>
+
+    <!-- 요일 -->
+    <div class="grid grid-cols-7 gap-2 mt-6 text-center font-semibold text-gray-600">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+    </div>
+
+    <!-- 날짜 -->
+    <div class="grid grid-cols-7 gap-2 mt-4 text-sm">
+        <!-- 빈칸 (3월 1일이 토요일이므로 앞에 5칸 비움) -->
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+
+        <!-- 날짜 -->
+        <div class="p-2 border h-24">1</div>
+        <div class="p-2 border h-24">2</div>
+        <div class="p-2 border h-24">3</div>
+        <div class="p-2 border h-24">4</div>
+        <div class="p-2 border h-24">5</div>
+        <div class="p-2 border h-24">6</div>
+        <div class="p-2 border h-24">7</div>
+        <div class="p-2 border h-24">8</div>
+        <div class="p-2 border h-24">9</div>
+        <div class="p-2 border h-24">10</div>
+        <div class="p-2 border h-24">11</div>
+        <div class="p-2 border h-24">12</div>
+        <div class="p-2 border h-24">13</div>
+        <div class="p-2 border h-24">14</div>
+        <div class="p-2 border h-24">15</div>
+        <div class="p-2 border h-24">16</div>
+        <div class="p-2 border h-24">17</div>
+        <div class="p-2 border h-24">18</div>
+        <div class="p-2 border h-24">19</div>
+        <div class="p-2 border h-24">20</div>
+        <div class="p-2 border h-24">21</div>
+        <div class="p-2 border h-24">22</div>
+        <div class="p-2 border h-24">23</div>
+        <div class="p-2 border h-24">24</div>
+        <div class="p-2 border h-24">25</div>
+        <div class="p-2 border h-24">26</div>
+        <div class="p-2 border h-24">27</div>
+        <div class="p-2 border h-24">28</div>
+        <div class="p-2 border h-24">29</div>
+        <div class="p-2 border h-24">30</div>
+        <div class="p-2 border h-24">31</div>
+    </div>
+</div>
+
+<!-- 하단바 -->
+<footer class="bg-white shadow-md p-4 mt-8">
+    <div class="flex justify-between items-center">
+        <span class="text-gray-600">© 2025 Calendar App</span>
+        <div class="space-x-4">
+            <a href="#" class="text-gray-600 hover:text-black">Privacy</a>
+            <a href="#" class="text-gray-600 hover:text-black">Terms</a>
+            <a href="#" class="text-gray-600 hover:text-black">Help</a>
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    <!--    메뉴바-->
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const sidebar = document.getElementById('sidebar');
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.remove('-translate-x-full');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+        });
+
+    <!--    캘린더/다이어리 선택-->
+        const calendarBtn = document.getElementById("calendar-btn");
+        const diaryBtn = document.getElementById("diary-btn");
+
+        calendarBtn.addEventListener("click", () => {
+            calendarBtn.classList.add("bg-white", "text-black", "shadow-md");
+            diaryBtn.classList.remove("bg-white", "text-black", "shadow-md");
+            diaryBtn.classList.add("text-gray-600");
+        });
+
+        diaryBtn.addEventListener("click", () => {
+            diaryBtn.classList.add("bg-white", "text-black", "shadow-md");
+            calendarBtn.classList.remove("bg-white", "text-black", "shadow-md");
+            calendarBtn.classList.add("text-gray-600");
+        });
+</script>
+
+</body>
+</html>
