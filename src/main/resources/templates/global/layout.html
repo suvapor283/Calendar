@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+<!-- 네비게이션 바 -->
+<nav class="p-4 bg-white shadow-md flex justify-between items-center">
+    <div class="flex items-center space-x-4">
+        <button id="menu-btn" class="text-2xl">☰</button>
+        <h1 class="text-xl font-semibold">Calendar</h1>
+    </div>
+    <div class="flex items-center space-x-2">
+        <input type="text" placeholder="Value" class="border px-3 py-1 rounded bg-gray-200 rounded-full p-1 px-3">
+        <button class="bg-black text-white px-4 py-1 rounded">Search</button>
+    </div>
+</nav>
+
+<!-- 사이드바 -->
+<div id="sidebar"
+     class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform ease-in-out duration-300 z-40">
+    <div class="p-4 flex justify-between items-center border-b">
+        <h2 class="text-lg font-semibold">Menu</h2>
+        <button id="close-btn" class="text-xl">×</button>
+    </div>
+    <ul class="p-4 space-y-4">
+        <li><a href="#" class="block text-gray-700 hover:text-black">Home</a></li>
+        <li><a href="#" class="block text-gray-700 hover:text-black">Calendar</a></li>
+        <li><a href="#" class="block text-gray-700 hover:text-black">Diary</a></li>
+        <li><a href="#" class="block text-gray-700 hover:text-black">Settings</a></li>
+    </ul>
+</div>
+
+<!-- 실제 content 들어갈 영역 -->
+<div layout:fragment="content"></div>
+
+<!-- 하단바 -->
+<footer class="bg-white shadow-md p-4 mt-8">
+    <div class="flex justify-between items-center">
+        <span class="text-gray-600">© 2025 Calendar App</span>
+        <div class="space-x-4">
+            <a href="#" class="text-gray-600 hover:text-black">Privacy</a>
+            <a href="#" class="text-gray-600 hover:text-black">Terms</a>
+            <a href="#" class="text-gray-600 hover:text-black">Help</a>
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const sidebar = document.getElementById('sidebar');
+
+    menuBtn.addEventListener('click', () => {
+        sidebar.classList.remove('-translate-x-full');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        sidebar.classList.add('-translate-x-full');
+    });
+</script>
+</body>
+</html>

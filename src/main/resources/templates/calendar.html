@@ -1,0 +1,50 @@
+<html lang="ko" layout:decorate="~{global/layout}">
+<div layout:fragment="content">
+
+    <!-- 캘린더 박스 -->
+    <div class="max-w-5xl mx-auto mt-6 p-6 bg-white shadow-md rounded-lg">
+        <!-- 상단 컨트롤 -->
+        <div class="flex justify-between items-center relative">
+            <div class="flex bg-gray-200 rounded-full p-1">
+                <a href="#">
+                    <button class="bg-white px-4 py-1 rounded-full text-black shadow-md">Calendar</button>
+                </a>
+                <a href="#">
+                    <button id="diary-btn" class="px-4 py-1 rounded-full text-gray-600">Diary</button>
+                </a>
+            </div>
+
+            <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
+                <button class="text-2xl">&lt;</button>
+                <h2 class="text-xl font-semibold text-center">March 2025</h2>
+                <button class="text-2xl">&gt;</button>
+            </div>
+        </div>
+
+        <!-- 요일 -->
+        <div class="grid grid-cols-7 gap-2 mt-6 text-center font-semibold text-gray-600">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+        </div>
+
+        <!-- 날짜 -->
+        <div class="grid grid-cols-7 gap-2 mt-4 text-sm">
+            <div class="p-2 border h-24">
+                <a href="#">1</a>
+                <h5>일정</h5>
+            </div>
+            <div class="p-2 border h-24">2</div>
+            <div class="p-2 border h-24">3</div>
+            <div class="p-2 border h-24">4</div>
+            <div class="p-2 border h-24">5</div>
+            <div class="p-2 border h-24">6</div>
+            <div class="p-2 border h-24">7</div>
+        </div>
+    </div>
+</div>
+</html>
