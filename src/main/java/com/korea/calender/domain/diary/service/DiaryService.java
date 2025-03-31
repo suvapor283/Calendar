@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -16,5 +17,16 @@ public class DiaryService {
     public List<Diary> getList() {
 
         return diaryRepository.findAll();
+    }
+
+    public Diary getDiary(Integer id) {
+
+        Optional<Diary> diaryOptional = this.diaryRepository.findById(id);
+
+        if (diaryOptional.isPresent()) {
+            return diaryOptional.get();
+        } else {
+            throw new RuntimeException("데이터가 존재하지 않습니다.");
+        }
     }
 }

@@ -28,18 +28,20 @@
         <button id="close-btn" class="text-xl">×</button>
     </div>
     <ul class="p-4 space-y-4">
-        <li><a href="#" class="block text-gray-700 hover:text-black">Home</a></li>
+        <li><a href="/" class="block text-gray-700 hover:text-black">Home</a></li>
         <li><a href="#" class="block text-gray-700 hover:text-black">Calendar</a></li>
-        <li><a href="#" class="block text-gray-700 hover:text-black">Diary</a></li>
+        <li><a href="/diary/list" class="block text-gray-700 hover:text-black">Diary</a></li>
         <li><a href="#" class="block text-gray-700 hover:text-black">Settings</a></li>
     </ul>
 </div>
 
-<!-- 실제 content 들어갈 영역 -->
-<div layout:fragment="content" class="flex-1"></div>
+<div class="w-full max-w-[1000px] min-w-[700px] mx-auto my-6 p-6 bg-white shadow-md rounded-lg">
+    <!-- 실제 content 들어갈 영역 -->
+    <div layout:fragment="content" class="flex-1"></div>
+</div>
 
 <!-- 하단바 -->
-<footer class="bg-white shadow-md p-4 mt-8">
+<footer class="bg-white shadow-md p-4 mt-auto">
     <div class="flex justify-between items-center">
         <span class="text-gray-600">© 2025 Calendar App</span>
         <div class="space-x-4">
