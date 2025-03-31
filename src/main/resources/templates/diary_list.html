@@ -1,20 +1,30 @@
 <html lang="ko" layout:decorate="~{global/_layout}">
 <div layout:fragment="content">
-    <table>
-        <thead>
-        <tr>
-            <th>제목</th>
-            <th>일시</th>
-            <th>내용</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="diary : ${diaryList}">
-            <td th:text="${diary.subject}"></td>
-            <td th:text="${diary.date}"></td>
-            <td th:text="${diary.content}"></td>
-        </tr>
-        </tbody>
-    </table>
+    <!-- 다이어리 박스 -->
+    <div class="max-w-5xl mx-auto mt-6 p-6 bg-white shadow-md rounded-lg">
+        <!-- 상단 컨트롤 -->
+        <div class="flex justify-end items-center relative">
+            <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
+                <button class="text-2xl">&lt;</button>
+                <h2 class="text-xl font-semibold text-center">March 2025</h2>
+                <button class="text-2xl">&gt;</button>
+            </div>
+            <a href="#" class="bg-black text-white px-4 py-1 rounded">add</a>
+        </div>
+
+        <!-- 다이어리 리스트 -->
+        <ul th:each="diary : ${diaryList}" class="list bg-base-100 rounded-box shadow-md my-4 p-6 rounded-lg border">
+            <a href="#">
+                <li class="list-row">
+                    <div>
+                        <div th:text="${diary.date}"></div>
+                        <div th:text="${diary.subject}" class="text-xs uppercase font-semibold opacity-60"></div>
+                    </div>
+                    <p th:text="${diary.content}" class="list-col-wrap text-xs">
+                    </p>
+                </li>
+            </a>
+        </ul>
+    </div>
 </div>
 </html>
