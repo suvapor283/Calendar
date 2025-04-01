@@ -5,6 +5,7 @@ import com.korea.calender.domain.diary.repository.DiaryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,5 +29,14 @@ public class DiaryService {
         } else {
             throw new RuntimeException("데이터가 존재하지 않습니다.");
         }
+    }
+
+    public void create(String subject, String content, LocalDate date) {
+        Diary diary = new Diary();
+        diary.setSubject(subject);
+        diary.setContent(content);
+        diary.setDate(date);
+
+        this.diaryRepository.save(diary);
     }
 }

@@ -1,10 +1,13 @@
 package com.korea.calender.domain.diary.controller;
 
 import com.korea.calender.domain.diary.entity.Diary;
+import com.korea.calender.domain.diary.form.DiaryForm;
 import com.korea.calender.domain.diary.service.DiaryService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,5 +44,16 @@ public class DiaryController {
     public String create() {
 
         return "diary/diary_form";
+    }
+
+    @PostMapping("create")
+    public String create(@Valid DiaryForm diaryForm, BindingResult bindingResult){
+
+        if(bindingResult.hasErrors()){
+            return "diary/diary_form";
+        }
+
+        this.diaryService.create(diaryForm.getSubject(), diaryForm.getContent(), diaryForm.getSelectedDate());
+        return "redirect:/diary/list";
     }
 }
