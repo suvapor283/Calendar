@@ -1,0 +1,46 @@
+<html lang="ko" layout:decorate="~{global/_layout}">
+<div layout:fragment="content">
+    <form th:action="@{/diary/create}" method="post" class="flex flex-col h-full">
+        <div class="my-4 mb-2 flex items-center gap-2">
+            <!-- 제목 입력 -->
+            <input type="text" name="subject" id="subject" placeholder="제목을 입력하세요."
+                   class="input font-semibold opacity-60 p-3 w-[800px]"/>
+
+            <!-- 날짜 선택 버튼 -->
+            <button type="button" popovertarget="cally-popover1"
+                    class="input input-border px-4 py-2 rounded border border-gray-500 opacity-60" id="cally1">
+                Pick a date
+            </button>
+            <input type="hidden" name="selectedDate" id="selectedDate">
+        </div>
+
+        <!-- 날짜 선택기 -->
+        <div popover id="cally-popover1" class="dropdown bg-base-100 rounded-box shadow-lg"
+             style="position-anchor:--cally1">
+            <calendar-date class="cally" th:attr="onchange='setDateValue(this.value)'">
+                <svg aria-label="Previous" class="fill-current size-4" slot="previous"
+                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M15.75 19.5 8.25 12l7.5-7.5"></path>
+                </svg>
+                <svg aria-label="Next" class="fill-current size-4" slot="next" xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 24 24">
+                    <path d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
+                </svg>
+                <calendar-month></calendar-month>
+            </calendar-date>
+        </div>
+        <hr>
+
+        <!-- 내용 입력 -->
+        <div class="my-4 mt-2">
+            <textarea name="content" id="content" placeholder="내용을 입력하세요." class="textarea p-3 w-full"
+                      rows="20"></textarea>
+        </div>
+
+        <!-- 저장 버튼 -->
+        <div class="mt-auto flex justify-end">
+            <button type="submit" class="my-2 bg-black text-white px-4 py-1 rounded">save</button>
+        </div>
+    </form>
+</div>
+</html>

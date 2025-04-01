@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -24,15 +25,21 @@ public class DiaryController {
         List<Diary> diaryList = diaryService.getList();
         model.addAttribute("diaryList", diaryList);
 
-        return "diary_list";
+        return "diary/diary_list";
     }
 
     @GetMapping("/detail/{id}")
-    public String detail(@PathVariable("id")Integer id, Model model){
+    public String detail(@PathVariable("id") Integer id, Model model) {
 
         Diary diary = this.diaryService.getDiary(id);
         model.addAttribute("diary", diary);
 
-        return "diary_detail";
+        return "diary/diary_detail";
+    }
+
+    @GetMapping("/create")
+    public String create() {
+
+        return "diary/diary_form";
     }
 }

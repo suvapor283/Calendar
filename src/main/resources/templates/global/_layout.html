@@ -54,17 +54,48 @@
 
 <!-- JavaScript -->
 <script>
+    <!-- 사이드바 -->
     const menuBtn = document.getElementById('menu-btn');
     const closeBtn = document.getElementById('close-btn');
     const sidebar = document.getElementById('sidebar');
 
+    // 메뉴 클릭 시 사이드 바 열기/닫기
     menuBtn.addEventListener('click', () => {
         sidebar.classList.remove('-translate-x-full');
     });
-
     closeBtn.addEventListener('click', () => {
         sidebar.classList.add('-translate-x-full');
     });
+
+    <!-- 날짜 선택기 -->
+    const button = document.getElementById('cally1');
+    const popover = document.getElementById('cally-popover1');
+
+    // 팝오버 열기/닫기
+    button.addEventListener('click', function() {
+        if (popover.style.display === 'none' || popover.style.display === '') {
+            popover.style.display = 'block';
+        } else {
+            popover.style.display = 'none';
+        }
+    });
+
+    function setDateValue(date) {
+        const button = document.getElementById('cally1');
+        button.innerText = date;
+
+        // 스타일 변경
+        button.classList.remove("border", "border-gray-500", "opacity-60", "text-gray-500");
+        button.classList.add("text-black");
+
+        // input에 날짜 값 저장
+        const hiddenInput = document.getElementById("selectedDate");
+        hiddenInput.value = date;
+
+        // 달력 닫기
+        popover.style.display = 'none';
+    };
 </script>
+<script type="module" src="https://unpkg.com/cally"></script>
 </body>
 </html>
