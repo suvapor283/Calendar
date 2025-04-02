@@ -1,14 +1,15 @@
 <html lang="ko" layout:decorate="~{global/_layout}">
 <div layout:fragment="content">
-    <form th:action="@{/diary/create}" method="post" class="flex flex-col h-full">
-        <div class="my-4 mb-2 flex items-center gap-2">
+    <form th:action="@{/diary/create}" th:object="${diaryForm}" method="post" class="flex flex-col h-full">
+        <div class="my-4 flex items-center gap-4">
             <!-- 제목 입력 -->
-            <input type="text" name="subject" id="subject" placeholder="제목을 입력하세요."
-                   class="input font-semibold opacity-60 p-3 w-[800px]"/>
+            <input type="text" name="subject" id="subject" placeholder="제목을 입력하세요." th:field="*{subject}"
+                   class="input input-ghost font-semibold w-full bg-transparent"/>
 
             <!-- 날짜 선택 버튼 -->
             <button type="button" popovertarget="cally-popover1"
-                    class="input input-border px-4 py-2 rounded border border-gray-500 opacity-60" id="cally1">
+                    class="px-4 py-3 rounded border border-gray-400 opacity-60 w-[150px]" id="cally1"
+                    style="anchor-name:--cally1">
                 Pick a date
             </button>
             <input type="hidden" name="selectedDate" id="selectedDate">
@@ -33,13 +34,13 @@
 
         <!-- 내용 입력 -->
         <div class="my-4 mt-2">
-            <textarea name="content" id="content" placeholder="내용을 입력하세요." class="textarea p-3 w-full"
-                      rows="20"></textarea>
+            <textarea name="content" id="content" placeholder="내용을 입력하세요." th:field="*{content}"
+                      class="textarea p-3 w-full bg-transparent" rows="20"></textarea>
         </div>
 
         <!-- 저장 버튼 -->
         <div class="mt-auto flex justify-end">
-            <button type="submit" class="my-2 bg-black text-white px-4 py-1 rounded">save</button>
+            <button type="submit" class="bg-black text-white px-4 py-1 rounded">save</button>
         </div>
     </form>
 </div>

@@ -4,7 +4,7 @@
     <div class="flex justify-end items-center relative">
         <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
             <button class="text-2xl">&lt;</button>
-            <h2 class="text-xl font-semibold text-center">March 2025</h2>
+            <h2 class="text-xl font-semibold">March 2025</h2>
             <button class="text-2xl">&gt;</button>
         </div>
 
@@ -12,12 +12,12 @@
     </div>
 
     <!-- 다이어리 리스트 -->
-    <ul th:each="diary : ${diaryList}" class="list bg-base-100 rounded-box shadow-md my-4 p-6 rounded-lg border">
+    <ul th:each="diary : ${diaryList}" class="shadow-md my-4 p-6 rounded-lg border">
         <a th:href="@{|/diary/detail/${diary.id}|}">
-            <li class="list-row">
+            <li>
                 <div>
                     <div th:text="${diary.date}"></div>
-                    <div th:text="${diary.subject}" class="text-xs uppercase font-semibold opacity-60"></div>
+                    <div th:text="${diary.subject}" class="text-xs font-semibold opacity-60"></div>
                 </div>
                 <p th:text="${diary.content}" class="line-clamp-3 text-xs"></p>
             </li>

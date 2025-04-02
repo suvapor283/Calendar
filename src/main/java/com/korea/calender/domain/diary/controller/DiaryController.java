@@ -41,7 +41,7 @@ public class DiaryController {
     }
 
     @GetMapping("/create")
-    public String create() {
+    public String create(DiaryForm diaryForm) {
 
         return "diary/diary_form";
     }
