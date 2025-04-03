@@ -36,7 +36,7 @@
     </ul>
 </div>
 
-<div class="max-w-[1000px] min-w-[700px] mx-auto my-6 p-6 bg-white shadow-md rounded-lg">
+<div class="w-[80%] min-w-[700px] mx-auto my-6 p-6 bg-white shadow-md rounded-lg">
     <!-- 실제 content 들어갈 영역 -->
     <div layout:fragment="content" class="flex-1"></div>
 </div>
@@ -55,7 +55,7 @@
 
 <!-- JavaScript -->
 <script>
-    <!-- 사이드바 -->
+<!-- 사이드바 -->
     const menuBtn = document.getElementById('menu-btn');
     const closeBtn = document.getElementById('close-btn');
     const sidebar = document.getElementById('sidebar');
@@ -68,34 +68,29 @@
         sidebar.classList.add('-translate-x-full');
     });
 
-    <!-- 날짜 선택기 -->
+<!-- 날짜 선택기 -->
     const button = document.getElementById('cally1');
     const popover = document.getElementById('cally-popover1');
+    popover.style.display = 'none';
 
     // 팝오버 열기/닫기
-    button.addEventListener('click', function() {
-        if (popover.style.display === 'none' || popover.style.display === '') {
-            popover.style.display = 'block';
-        } else {
-            popover.style.display = 'none';
-        }
+    button.addEventListener('click', function () {
+        popover.style.display = (popover.style.display === 'block') ? 'none' : 'block';
     });
 
     function setDateValue(date) {
-        const button = document.getElementById('cally1');
+        // 날짜 저장
         button.innerText = date;
+        document.getElementById("selectedDate").value = date;
 
         // 스타일 변경
         button.classList.remove("border", "border-gray-500", "opacity-60", "text-gray-500");
         button.classList.add("text-black");
 
-        // input에 날짜 값 저장
-        const hiddenInput = document.getElementById("selectedDate");
-        hiddenInput.value = date;
-
-        // 달력 닫기
         popover.style.display = 'none';
     };
+
+
 </script>
 <script type="module" src="https://unpkg.com/cally"></script>
 </body>
