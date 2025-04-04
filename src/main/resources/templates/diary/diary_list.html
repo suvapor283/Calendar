@@ -12,20 +12,22 @@
     </div>
 
     <!-- 다이어리 리스트 -->
-    <ul th:each="diary, loop : ${paging}" class="shadow-md my-4 p-6 rounded-lg border">
-        <a th:href="@{|/diary/detail/${diary.id}|}">
-            <li>
-                <div>
-                    <div th:text="${diary.date}"></div>
-                    <div th:text="${diary.subject}" class="text-xs font-semibold opacity-60"></div>
-                </div>
-                <p th:text="${diary.content}" class="line-clamp-3 text-xs"></p>
-            </li>
-        </a>
-    </ul>
+    <div class="flex-1">
+        <ul th:each="diary, loop : ${paging}" class="shadow-md my-4 p-6 rounded-lg border">
+            <a th:href="@{|/diary/detail/${diary.id}|}">
+                <li>
+                    <div>
+                        <div th:text="${diary.date}"></div>
+                        <div th:text="${diary.subject}" class="text-xs font-semibold opacity-60"></div>
+                    </div>
+                    <p th:text="${diary.content}" class="line-clamp-3 text-xs"></p>
+                </li>
+            </a>
+        </ul>
+    </div>
 
     <!-- 페이징 처리 -->
-    <div th:if="${!paging.isEmpty()}">
+    <div th:if="${!paging.isEmpty()}" class="mt-auto">
         <ul class="join flex justify-center">
             <li class="join-item btn">
                 <a th:href="@{|?page=${paging.number-1}|}">이전</a>

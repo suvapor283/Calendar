@@ -1,8 +1,11 @@
 <html lang="ko" layout:decorate="~{global/_layout}">
 <div layout:fragment="content">
+    <!-- 상단 컨트롤 -->
     <div class="mb-4">
         <span th:text="${diary.date}" class="text-2xl font-bold"></span>
     </div>
+
+    <!-- 다이어리 -->
     <p th:text="${diary.subject}" class="font-semibold opacity-60 mb-1"></p>
     <p th:text="${diary.content}"></p>
 </div>
