@@ -1,7 +1,7 @@
-package com.korea.calender.domain.diary.service;
+package com.korea.calendar.domain.diary.service;
 
-import com.korea.calender.domain.diary.entity.Diary;
-import com.korea.calender.domain.diary.repository.DiaryRepository;
+import com.korea.calendar.domain.diary.entity.Diary;
+import com.korea.calendar.domain.diary.repository.DiaryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

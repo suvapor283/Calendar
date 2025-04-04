@@ -1,4 +1,4 @@
-package com.korea.calender;
+package com.korea.calendar;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

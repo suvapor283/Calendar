@@ -1,4 +1,4 @@
-package com.korea.calender.domain.diary.form;
+package com.korea.calendar.domain.diary.form;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;

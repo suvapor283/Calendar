@@ -1,10 +1,9 @@
-package com.korea.calender.domain.diary.entity;
+package com.korea.calendar.domain.diary.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Getter

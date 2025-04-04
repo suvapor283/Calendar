@@ -1,10 +1,10 @@
-package com.korea.calender;
+package com.korea.calendar;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CalenderApplicationTests {
+class CalendarApplicationTests {
 
 	@Test
 	void contextLoads() {

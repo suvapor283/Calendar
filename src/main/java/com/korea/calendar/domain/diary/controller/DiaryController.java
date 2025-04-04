@@ -1,8 +1,8 @@
-package com.korea.calender.domain.diary.controller;
+package com.korea.calendar.domain.diary.controller;
 
-import com.korea.calender.domain.diary.entity.Diary;
-import com.korea.calender.domain.diary.form.DiaryForm;
-import com.korea.calender.domain.diary.service.DiaryService;
+import com.korea.calendar.domain.diary.entity.Diary;
+import com.korea.calendar.domain.diary.form.DiaryForm;
+import com.korea.calendar.domain.diary.service.DiaryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
