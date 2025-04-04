@@ -5,13 +5,11 @@ import com.korea.calendar.domain.diary.form.DiaryForm;
 import com.korea.calendar.domain.diary.service.DiaryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,10 +21,10 @@ public class DiaryController {
     private final DiaryService diaryService;
 
     @GetMapping("/list")
-    public String list(Model model) {
+    public String list(Model model, @RequestParam(value = "page", defaultValue = "0")int page) {
 
-        List<Diary> diaryList = diaryService.getList();
-        model.addAttribute("diaryList", diaryList);
+        Page<Diary> paging = this.diaryService.getList(page);
+        model.addAttribute("paging", paging);
 
         return "diary/diary_list";
     }

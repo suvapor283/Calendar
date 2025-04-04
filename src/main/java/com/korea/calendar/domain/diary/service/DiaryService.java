@@ -3,6 +3,9 @@ package com.korea.calendar.domain.diary.service;
 import com.korea.calendar.domain.diary.entity.Diary;
 import com.korea.calendar.domain.diary.repository.DiaryRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -15,9 +18,11 @@ public class DiaryService {
 
     private final DiaryRepository diaryRepository;
 
-    public List<Diary> getList() {
+    public Page<Diary> getList(int page) {
 
-        return diaryRepository.findAll();
+        Pageable pageable = PageRequest.of(page, 10);
+
+        return this.diaryRepository.findAll(pageable);
     }
 
     public Diary getDiary(Integer id) {
