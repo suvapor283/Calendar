@@ -17,7 +17,7 @@
         <h1 class="text-xl font-semibold">Calendar</h1>
     </div>
     <div class="flex items-center space-x-2">
-        <input type="text" placeholder="Value" class="border px-3 py-1 bg-gray-200 rounded-full">
+        <input type="text" placeholder="검색어를 입력하세요." class="border px-3 py-1 bg-gray-200 rounded-full">
         <button class="bg-black text-white px-4 py-1 rounded">Search</button>
     </div>
 </nav>
@@ -31,6 +31,7 @@
     </div>
     <ul class="p-4 space-y-4">
         <li><a href="/" class="block text-gray-700 hover:text-black">Home</a></li>
+        <li><a href="/user/signup" class="block text-gray-700 hover:text-black">sign up</a></li>
         <li><a href="#" class="block text-gray-700 hover:text-black">Calendar</a></li>
         <li><a href="/diary/list" class="block text-gray-700 hover:text-black">Diary</a></li>
         <li><a href="#" class="block text-gray-700 hover:text-black">Settings</a></li>
@@ -38,7 +39,11 @@
 </div>
 
 <!-- 실제 content 들어갈 영역 -->
-<div layout:fragment="content" class="w-[80%] min-w-[700px] flex flex-col min-h-screen mx-auto my-6 p-6 bg-white shadow-md rounded-lg"></div>
+<div layout:fragment="content">
+    <div class="w-[80%] min-w-[700px] flex flex-col min-h-screen mx-auto my-6 p-6 bg-white shadow-md rounded-lg">
+        <div layout:fragment="innerContent"></div>
+    </div>
+</div>
 
 <!-- 하단바 -->
 <footer class="bg-white shadow-md p-4 mt-auto">

@@ -1,7 +1,7 @@
 <html lang="ko" layout:decorate="~{global/_layout}">
-<div layout:fragment="content">
+<div layout:fragment="innerContent">
     <form th:action="@{/diary/create}" th:object="${diaryForm}" method="post" class="flex flex-col">
-        <div th:replace="~{form_errors :: formErrorsFragment}"></div>
+        <div th:replace="~{global/_form_errors :: formErrorsFragment}"></div>
         <div class="my-4 flex items-center gap-4">
             <!-- 제목 입력 -->
             <input type="text" name="subject" id="subject" placeholder="제목을 입력하세요." th:field="*{subject}"

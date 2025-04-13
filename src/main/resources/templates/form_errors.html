@@ -1,6 +1,0 @@
-<div th:fragment="formErrorsFragment" class="fixed left-2 bottom-2 flex flex-col-reverse gap-2 z-50">
-    <div role="alert" th:if="${#fields.hasAnyErrors()}" th:each="err : ${#fields.allErrors()}"
-         class="w-[250px] bg-red-500 text-white text-sm p-3 rounded error-message">
-        <span th:text="${err}"></span>
-    </div>
-</div>
