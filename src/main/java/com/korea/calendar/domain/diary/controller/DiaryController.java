@@ -21,7 +21,7 @@ public class DiaryController {
     private final DiaryService diaryService;
 
     @GetMapping("/list")
-    public String list(Model model, @RequestParam(value = "page", defaultValue = "0")int page) {
+    public String list(Model model, @RequestParam(value = "page", defaultValue = "0") int page) {
 
         Page<Diary> paging = this.diaryService.getList(page);
         model.addAttribute("paging", paging);
@@ -45,9 +45,9 @@ public class DiaryController {
     }
 
     @PostMapping("create")
-    public String create(@Valid DiaryForm diaryForm, BindingResult bindingResult){
+    public String create(@Valid DiaryForm diaryForm, BindingResult bindingResult) {
 
-        if(bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             return "diary/diary_form";
         }
 

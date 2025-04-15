@@ -1,5 +1,5 @@
 <html lang="ko" layout:decorate="~{global/_layout}">
-<div layout:fragment="innerContent">
+<div layout:fragment="content">
     <form th:action="@{/diary/create}" th:object="${diaryForm}" method="post" class="flex flex-col">
         <div th:replace="~{global/_form_errors :: formErrorsFragment}"></div>
         <div class="my-4 flex items-center gap-4">
@@ -41,7 +41,7 @@
 
         <!-- 저장 버튼 -->
         <div class="mt-auto flex justify-end">
-            <button type="submit" class="bg-black text-white px-4 py-1 rounded">save</button>
+            <button type="submit" class="bg-black text-white px-5 py-2 rounded">save</button>
         </div>
     </form>
 </div>
