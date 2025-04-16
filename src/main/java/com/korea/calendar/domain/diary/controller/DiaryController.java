@@ -11,8 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/diary")
@@ -21,12 +19,12 @@ public class DiaryController {
     private final DiaryService diaryService;
 
     @GetMapping("/list")
-    public String list(Model model, @RequestParam(value = "page", defaultValue = "0") int page) {
+    public String list(@RequestParam(value = "page", defaultValue = "0") int page, Model model) {
 
         Page<Diary> paging = this.diaryService.getList(page);
         model.addAttribute("paging", paging);
 
-        return "diary/diary_list";
+        return "pages/diary/diary_list";
     }
 
     @GetMapping("/detail/{id}")
@@ -35,20 +33,20 @@ public class DiaryController {
         Diary diary = this.diaryService.getDiary(id);
         model.addAttribute("diary", diary);
 
-        return "diary/diary_detail";
+        return "pages/diary/diary_detail";
     }
 
     @GetMapping("/create")
     public String create(DiaryForm diaryForm) {
 
-        return "diary/diary_form";
+        return "pages/diary/diary_form";
     }
 
     @PostMapping("create")
     public String create(@Valid DiaryForm diaryForm, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            return "diary/diary_form";
+            return "pages/diary/diary_form";
         }
 
         this.diaryService.create(diaryForm.getSubject(), diaryForm.getContent(), diaryForm.getSelectedDate());

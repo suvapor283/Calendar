@@ -1,4 +1,4 @@
-<html lang="ko" layout:decorate="~{global/_layout}">
+<html lang="ko" layout:decorate="~{_layouts/_base}">
 <div layout:fragment="content">
     <!-- 상단 컨트롤 -->
     <div class="flex justify-end items-center relative">
@@ -14,15 +14,15 @@
     <!-- 다이어리 리스트 -->
     <div class="flex-1">
         <ul th:each="diary, loop : ${paging}" class="shadow-md my-4 p-6 rounded-lg border">
-            <a th:href="@{|/diary/detail/${diary.id}|}">
-                <li>
+            <li>
+                <a th:href="@{|/diary/detail/${diary.id}|}">
                     <div>
                         <div th:text="${diary.date}"></div>
                         <div th:text="${diary.subject}" class="text-xs font-semibold opacity-60"></div>
                     </div>
                     <p th:text="${diary.content}" class="line-clamp-3 text-xs"></p>
-                </li>
-            </a>
+                </a>
+            </li>
         </ul>
     </div>
 

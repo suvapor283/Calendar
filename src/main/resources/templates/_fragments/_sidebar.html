@@ -1,0 +1,26 @@
+<div th:fragment="sidebar" id="sidebar"
+     class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform ease-in-out duration-300 z-40">
+    <div class="p-4 flex justify-between items-center border-b">
+        <h2 class="text-lg font-semibold">Menu</h2>
+        <button id="close-btn" class="text-xl">×</button>
+    </div>
+    <ul class="p-4 space-y-4">
+        <li><a th:href="@{/}" class="block text-gray-700 hover:text-black">Home</a></li>
+        <li><a href="#" class="block text-gray-700 hover:text-black">Calendar</a></li>
+        <li><a th:href="@{/diary/list}" class="block text-gray-700 hover:text-black">Diary</a></li>
+        <li><a href="#" class="block text-gray-700 hover:text-black">Settings</a></li>
+    </ul>
+
+    <ul class="absolute bottom-0 w-full p-4 space-y-2 border-t">
+        <li>
+            <a sec:authorize="isAnonymous()" th:href="@{/auth/login}"
+               class="block w-full text-center bg-black text-white py-2 rounded hover:bg-gray-800">Login</a>
+            <a sec:authorize="isAuthenticated()" th:href="@{/auth/logout}"
+               class="block w-full text-center bg-black text-white py-2 rounded hover:bg-gray-800">Logout</a>
+        </li>
+        <li>
+            <a th:href="@{/auth/signup}"
+               class="block w-full text-center bg-black text-white py-2 rounded hover:bg-gray-800">Sign Up</a>
+        </li>
+    </ul>
+</div>

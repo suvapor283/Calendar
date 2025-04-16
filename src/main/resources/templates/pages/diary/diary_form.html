@@ -1,15 +1,15 @@
-<html lang="ko" layout:decorate="~{global/_layout}">
+<html lang="ko" layout:decorate="~{_layouts/_base}">
 <div layout:fragment="content">
     <form th:action="@{/diary/create}" th:object="${diaryForm}" method="post" class="flex flex-col">
-        <div th:replace="~{global/_form_errors :: formErrorsFragment}"></div>
+        <div th:replace="~{_fragments/_form_errors :: formErrorsFragment}"></div>
         <div class="my-4 flex items-center gap-4">
             <!-- 제목 입력 -->
             <input type="text" name="subject" id="subject" placeholder="제목을 입력하세요." th:field="*{subject}"
                    class="input input-ghost font-semibold w-full bg-transparent"/>
 
             <!-- 날짜 선택 버튼 -->
-            <button type="button" popovertarget="cally-popover1"
-                    class="px-4 py-3 rounded border border-gray-400 opacity-60 w-[150px]" id="cally1"
+            <button type="button" popovertarget="cally-popover1" id="cally1"
+                    class="px-4 py-3 rounded border border-gray-400 opacity-60 w-[150px]"
                     style="anchor-name:--cally1">
                 Pick a date
             </button>
@@ -19,7 +19,7 @@
         <!-- 날짜 선택기 -->
         <div popover id="cally-popover1" class="dropdown bg-base-100 rounded-box shadow-lg"
              style="position-anchor:--cally1">
-            <calendar-date class="cally" th:attr="onchange='setDateValue(this.value)'">
+            <calendar-date th:attr="onchange='setDateValue(this.value)'" class="cally">
                 <svg aria-label="Previous" class="fill-current size-4" slot="previous"
                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M15.75 19.5 8.25 12l7.5-7.5"></path>
